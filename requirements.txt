@@ -1,0 +1,25 @@
+# Core Python Libraries (Handled by default)
+# os
+# logging
+# warnings
+# time
+# json
+# random
+# multiprocessing
+
+# Numerical Computing
+numpy>=1.21.0
+
+# Deep Learning & PyTorch
+torch>=2.0.0
+torchvision>=0.15.0  # Optional but often used with torch
+torchaudio>=2.0.0  # Optional, but included for completeness
+
+# Gymnasium for RL Environments
+gymnasium>=0.29.1  # Ensure it's gymnasium, not gym
+
+# Stable-Baselines3 for Reinforcement Learning
+stable-baselines3>=2.1.0
+
+# Additional Dependencies
+# (Stable-Baselines3 uses PyTorch's Adam, but we explicitly list AdamW)
