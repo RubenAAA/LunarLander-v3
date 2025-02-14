@@ -1,0 +1,3 @@
+name: rapids-23.10
+channels:
+  - defaults
