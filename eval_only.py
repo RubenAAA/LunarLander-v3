@@ -1,8 +1,7 @@
-import gymnasium as gym
-import time
 # imports
 import time
 import torch
+import imageio
 import gymnasium as gym
 from stable_baselines3 import PPO
 
@@ -63,5 +62,27 @@ def evaluate(model_path, episodes=3):
     env.close()  # Close the environment to free resources
 
 
+def record_lunar_lander_gif(model_path, output_path="lunar_lander.gif", fps=30):
+    """Records an episode of LunarLander and saves it as a GIF."""
+    env = gym.make("LunarLander-v3", render_mode="rgb_array")  # Use RGB mode for frame capture
+    frames = []
+    model = PPO.load(model_path)  # Load your trained model
+    obs, _ = env.reset()
+    done = False
+
+    while not done:
+        frame = env.render()  # Get the frame in RGB format
+        frames.append(frame)  # Save frame
+        action, _ = model.predict(obs, deterministic=True)
+        obs, reward, done, _, _ = env.step(action)
+
+    env.close()
+    
+    # Save as GIF
+    imageio.mimsave(output_path, frames, fps=fps)
+    print(f"✅ GIF saved to {output_path}")
+
+
 if __name__ == "__main__":
-    evaluate("final.zip")
+    # evaluate("final.zip")
+    record_lunar_lander_gif(model_path="final_296.zip")
