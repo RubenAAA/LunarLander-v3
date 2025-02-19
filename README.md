@@ -1,5 +1,7 @@
 # 🚀 Reinforcement Learning with PPO on LunarLander-v3
 
+![Lunar Lander AI in Action](lunar_lander.gif)
+
 ## 📝 Project Overview
 This project implements **Proximal Policy Optimization (PPO)** to train an agent in the **LunarLander-v3** environment using **Stable-Baselines3**. The training process leverages **dynamic hyperparameter tuning**, parallel environments, and periodic model evaluations to optimize performance.
 
